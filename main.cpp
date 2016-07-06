@@ -28,7 +28,7 @@ vector<Point> getVector(const string &pointsFile) {
 
 Mat getMaskedImage(const string &imageFile, const vector<Point> &points) {
     Mat image = imread(imageFile);
-    Mat originalImage = image.clone(); 
+    Mat originalImage = image.clone();
     fillPoly(image, vector<vector<Point>>{points}, Scalar (255, 0, 0) );
     auto alpha = alphaValue;
     auto tmp =  ( 1-alpha)*originalImage + alpha*image;
